@@ -2,17 +2,17 @@
 <section class="h-screen">
   <div class=" bg-gray1 flex  w-full" style="height:88vh;">
   <!--side nav -->
-    <div class="w-64 bg-black pt-6 px-6 relative">
+    <div class="w-64 bg-black pt-6 px-6 relative text-gray6">
       <img src="spotify logo.svg" class="mb-6 w-32 h-10">
       <div class="border-b border-gray-700">
-       <button v-for="tab in tabs" :key="tab"  @click ="id = tab.id"    :class="`${ id === tab.id ?   'text-gray-100 ' : ''} ${tab.id === 'library' ? 'mb-8 ' : 'mb-1'}  flex items-center  text-gray6 hover:text-gray-100  `">
+       <button v-for="tab in tabs" :key="tab"  @click ="id = tab.id"    :class="`${ id === tab.id ?   'text-gray-100 ' : ''} ${tab.id === 'library' ? 'mb-8 ' : 'mb-1'}  flex items-center   hover:text-gray-100  `">
         <i class="material-icons text-3xl mr-5">{{tab.icon}}</i>
         <router-link :to="`${tab.route}`"><p class=" text-sm font-bold">{{tab.title}}</p></router-link>
 
        </button>
       </div>
       <div>
-        <button v-for="playlist in playlists" :key="playlist" @click="id = playlist.id" :class="`${ id === playlist.id ?   'text-gray-100 ' : ''} flex text-gray6 hover:text-gray-100 mt-2`">
+        <button v-for="playlist in playlists" :key="playlist" @click="id = playlist.id" :class="`${ id === playlist.id ?   'text-gray-100 ' : ''} flex  hover:text-gray-100 mt-2`">
           <p class="text-sm font-semibold mb-1">{{playlist.title}}</p>
         </button>
       </div>

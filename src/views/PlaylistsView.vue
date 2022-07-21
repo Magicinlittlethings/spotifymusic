@@ -2,8 +2,8 @@
 <div class="playlist">
     <nav class="  flex justify-between sticky top-0 opacity-90 bg-gray1  py-3 z-30 px-12">
         <div class="flex">
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </p>
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_right </p>
+          <button @click = "back" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </button>
+          <button @click ="forward" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_right </button>
           <div class="flex justify-between mt-1.5">
            <router-link to="/pagenotfound"><p class="text-white font-semibold text-base mr-3 border border-transparent hover:bg-spotifyblack rounded-md px-2 cursor-pointer">Playlists</p></router-link>
            <router-link to="/pagenotfound"><p class="text-white font-semibold text-base mr-3 px-2 border border-transparent hover:bg-spotifyblack rounded-md cursor-pointer">Podcasts</p></router-link>
@@ -46,7 +46,7 @@
         </div>
 
       </nav>
-    <div class="mt-12 px-8">
+    <div @click="showDropdown = false" class="mt-12 px-8">
         
         <p class="text-white text-2xl font-bold mb-4">Playlists</p>
         <div class="flex flex-wrap ">
@@ -115,6 +115,13 @@ data(){
       
      })
   },
+  back() {
+      this.$router.go(-1)
+    },
+    forward() {
+
+       this.$router.go(1)
+    }
 
  }
 }

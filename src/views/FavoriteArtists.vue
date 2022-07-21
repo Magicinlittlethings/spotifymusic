@@ -2,8 +2,8 @@
   <div class="fave">
        <nav class="  flex justify-between sticky top-0 opacity-90 bg-gray1 px-12 py-3 z-30">
         <div class="flex">
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </p>
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin"> chevron_right </p>
+          <button @click = "back" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </button>
+          <button @click ="forward" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin"> chevron_right </button>
         </div>
         <div class="flex justify-between">
           <router-link to="/pagenotfound"><button class="border rounded-full px-2 mr-2 cursor-pointer hover:bg-black mt-2">
@@ -40,7 +40,7 @@
         </div>
 
       </nav>
-      <div class="px-8 mt-12">
+      <div @click="showDropdown = false" class="px-8 mt-12 ">
           <div class="favoriteartists mt-12">
           <p class="text-white text-2xl font-bold mb-2 hover:underline cursor-pointer">Your favorite Artists</p>
           <p class="text-gray-400 text-base mb-2"></p>
@@ -243,6 +243,13 @@ data(){
       
      })
   },
+  back() {
+      this.$router.go(-1)
+    },
+    forward() {
+
+       this.$router.go(1)
+    }
 
  }
 }

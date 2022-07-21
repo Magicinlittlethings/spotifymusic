@@ -1,5 +1,45 @@
 <template>
-  <div class="px-8">
+<nav class="  flex justify-between sticky top-0 opacity-90 bg-gray1 px-12 py-3 z-30">
+        <div class="flex">
+          <button @click = "back" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </button>
+          <button @click ="forward" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin"> chevron_right </button>
+        </div>
+        <div class="flex justify-between">
+          <router-link to="/pagenotfound"><button class="border rounded-full px-2 mr-2 cursor-pointer hover:bg-black mt-2">
+            <p class="text-gray-100  font-bold text-sm  mt-0.5 ">Upgrade</p>
+          </button></router-link>
+          <div class="relative">
+           <button @click="showDropdown = !showDropdown" :class="`border rounded-full px-1 flex bg-black ml-2 border-transparent cursor-pointer hover:bg-gray3 ${ showDropdown === true ?   'bg-gray3 ' : ''}`">
+            <span class="material-icons mr-1 text-3xl text-white ">account_circle</span>
+            <p class="text-gray-100 font-bold ml-1 mt-2 text-sm"> Theblackchild </p>
+            <span v-if="showDropdown === true" class="material-icons text-white mt-1.5"> arrow_drop_down</span>
+            <span v-if="showDropdown === false" class="material-icons text-white mt-1.5"> arrow_drop_up</span>
+           </button>
+           <div v-if="showDropdown === true" class="absolute bg-spotifyblack mt-2  border rounded-md border-transparent shadow-2xl p-2 w-52">
+             <router-link to="/pagenotfound"><button class="w-full border border-transparent rounded-md hover:bg-gray3 p-1 flex justify-between" >
+               <p class="text-white text-base"> Account</p>
+               <span class="material-icons text-white text-lg"> open_in_new</span>
+             </button></router-link>
+              <router-link to="/profile"><button class="w-full border border-transparent rounded-md hover:bg-gray3 p-1 flex justify-between" >
+               <p class="text-white text-base"> Profile</p>
+               
+             </button></router-link>
+              <router-link to="/pagenotfound"><button class="w-full border border-transparent rounded-md hover:bg-gray3 p-1 flex justify-between" >
+               <p class="text-white text-base"> Upgrade to Premium</p>
+               <span class="material-icons text-white text-lg"> open_in_new</span>
+             </button></router-link>
+             <router-link to="/pagenotfound"><button class="w-full border border-transparent rounded-md hover:bg-gray3 p-1 flex justify-between" >
+               <p class="text-white text-base"> Log out</p>
+               
+             </button></router-link>
+           </div>
+          </div>
+          
+          
+        </div>
+
+      </nav>
+  <div @click="showDropdown = false" class="px-8">
       <div class="Seeall mt-12">
           <p class="text-white text-2xl font-bold mb-2">See All</p>
           <p class="text-gray-400 text-base mb-2">recommended</p>
@@ -308,7 +348,15 @@
 
 <script>
 export default {
+ methods: {
+   back() {
+      this.$router.go(-1)
+    },
+    forward() {
 
+       this.$router.go(1)
+    },
+    }
 }
 </script>
 

@@ -9,15 +9,25 @@
          <p class="text-white text-4xl font-bold text-center mt-10">Page not found</p>
          <p class="text-base font-semibold text-white text-center mt-6">We can't seem to find the page you are looking for.</p>
          <div class="flex justify-center">
-         <router-link to="/"><button class="bg-white border border-transparent py-2 px-6 hover:scale-110 rounded-full my-8"><p class="text-base">Home</p></button></router-link>
+         <router-link to="/"><button  class="bg-white border border-transparent py-2 px-6 hover:scale-110 rounded-full my-8"><p class="text-base">Home</p></button></router-link>
          </div>
-         <p class="text-white text-center text-base font-semibold">Help</p>
+         <p class="text-white text-center text-base font-semibold hover:underline cursor-pointer">Help</p>
       </div>
   </div>
 </template>
 
 <script>
+import appp from '../App.vue'
 export default {
+   components: {appp
+    
+    
+  },
+  data(){
+     return{
+        id:'home'
+              }
+         }
 
 }
 </script>

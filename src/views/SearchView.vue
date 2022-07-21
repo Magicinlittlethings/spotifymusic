@@ -2,8 +2,8 @@
   <div class="search ">
       <nav class="  flex justify-between sticky top-0 opacity-90 bg-gray1 px-12 py-3 z-30">
         <div class="flex">
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </p>
-          <p class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_right </p>
+          <button @click = "back" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_left </button>
+          <button @click = "forward" class="material-icons border border-transparent rounded-full bg-black h-10 text-4xl text-gray-100 font-thin mr-5"> chevron_right </button>
           <form class="relative">
            <input type="search" placeholder="Artists, songs, or podcasts" class=" z-40  bg-white border border-transparent rounded-full w-72 h-10 text-black px-8  ">
             <span class="material-icons text-2xl  left-2 top-1.5  absolute">search</span>
@@ -46,7 +46,7 @@
       </nav>
      
       
-      <div class="mt-12 px-8">
+      <div @click="showDropdown = false" class="mt-12 px-8">
           <div class="topgenres  ">
               <p class="text-white text-2xl font-bold mb-4">Your top genres</p>
               <div class="flex flex-wrap">
@@ -215,6 +215,15 @@ data(){
          showDropdown:false
          }
          },
+         methods:{ 
+         back() {
+      this.$router.go(-1)
+    },
+    forward() {
+
+       this.$router.go(1)
+    },
+    },
       
 }
 </script>
